@@ -1,68 +1,39 @@
-:root {
-    --primary-color: #003366;
-    /* deep blue */
-    --secondary-color: #0077b6;
-    /* bright blue */
-    --accent1-color: #333333;
-    /* dark gray text */
-    --accent2-color: #f2f2f2;
-    /* light gray background */
-
-    --heading-font: "Georgia", serif;
-    --body-font: "Arial", sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #1e90ff;
+    --accent-color: #ff4500;
+    --text-color: #333;
+    --background-color: #fff;
+}
+
 body {
-    font-family: var(--body-font);
-    color: var(--accent1-color);
-    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
 }
 
-header,
-main,
-footer {
-    width: 840px;
-    margin: 0 auto;
+header {
+    background: var(--primary-color);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-h1,
-h2 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-}
-
-nav,
-p,
-section,
-article {
-    margin: 16px;
-    padding: 8px;
+header img {
+    height: 60px;
 }
 
 header nav a {
-    display: block;
-    margin: 4px 0;
-    color: var(--primary-color);
+    color: white;
+    margin: 0 10px;
     text-decoration: none;
-    font-weight: bold;
-}
-
-.socialmedia a {
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 8px;
-}
-
-.socialmedia img {
-    width: 40px;
-
-    height: auto;
 }
 
 .hero {
@@ -70,34 +41,62 @@ header nav a {
 }
 
 .hero img {
-    display: block;
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .hero h1 {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: rgba(0, 0, 0, 0.5);
     color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    border-radius: 4px;
 }
 
 .hero article {
     position: absolute;
     bottom: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 12px;
-    border-radius: 4px;
-    max-width: 300px;
+    left: 20px;
+    color: white;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 .hero article img {
     float: right;
-    width: 125px;
-    margin-left: 12px;
-    border-radius: 4px;
+    margin-left: 10px;
+    width: 150px;
+}
+
+main section {
+    padding: 20px;
+}
+
+main section h2 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.socialmedia a {
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.socialmedia img {
+    width: 30px;
+    height: 30px;
 }
