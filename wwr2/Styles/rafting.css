@@ -55,11 +55,14 @@ header nav a {
 
 .socialmedia a {
     text-decoration: none;
+    display: inline-block;
+    margin: 0 8px;
 }
 
 .socialmedia img {
-    width: 80px;
-    margin: 8px;
+    width: 40px;
+
+    height: auto;
 }
 
 .hero {
@@ -73,23 +76,28 @@ header nav a {
 }
 
 .hero h1 {
-    position: static;
-    background: none;
-    color: var(--primary-color);
-    text-align: left;
-    opacity: 1;
-    padding: 16px 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 .hero article {
-    position: static;
-    background: none;
-    padding: 16px 0;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 12px;
+    border-radius: 4px;
+    max-width: 300px;
 }
 
 .hero article img {
-    float: left;
+    float: right;
     width: 125px;
-    margin-right: 12px;
+    margin-left: 12px;
     border-radius: 4px;
 }
