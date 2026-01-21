@@ -1,37 +1,49 @@
+:root {
+    --primary-color: darkblue;
+    --secondary-color: white;
+    --border-color: #333;
+    --shadow-color: #999;
+    --background-light: #f4f4f4;
+    --main-padding: 10px;
+    --aside-width: 300px;
+    --main-font: Arial, Helvetica, sans-serif;
+}
+
 nav {
-    background-color: darkblue;
-    padding: 10px;
+    background-color: var(--primary-color);
+    padding: var(--main-padding);
 }
 
 nav a {
-    color: white;
+    color: var(--secondary-color);
     padding: 20px;
     display: block;
 }
 
 h1 {
-    color: darkblue;
+    color: var(--primary-color);
 }
 
 main {
     max-width: 800px;
     margin: 0 auto;
+    font-family: var(--main-font);
 }
 
 main img {
     width: 150px;
     height: auto;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
     padding: 5px;
-    box-shadow: 0 0 10px #999;
+    box-shadow: 0 0 10px var(--shadow-color);
 }
 
 aside {
-    width: 300px;
+    width: var(--aside-width);
     margin: 20px auto;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
     padding: 15px;
-    background-color: #f4f4f4;
+    background-color: var(--background-light);
     color: #000;
 }
 
@@ -46,6 +58,6 @@ p {
 
 footer {
     margin-top: 20px;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border-color);
     text-align: center;
 }
