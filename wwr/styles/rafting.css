@@ -1,43 +1,106 @@
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 :root {
     --primary-color: #1e90ff;
+
     --accent-color: #ff4500;
-    --text-color: #333;
-    --background-color: #fff;
+
+    --text-color: #333333;
+    --muted-color: #556070;
+    --background-color: #ffffff;
+
+    --surface: #f5f7fa;
+    --border: #e5e7eb;
+    --maxw: 1200px;
+    --radius: 12px;
+    --shadow: 0 6px 20px rgba(0, 0, 0, .06);
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
     line-height: 1.6;
 }
 
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 header {
     background: var(--primary-color);
-    padding: 10px;
-    display: flex;
+    color: #fff;
+    padding: 10px 16px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
+
+    max-width: var(--maxw);
+    margin: 0 auto;
 }
 
 header img {
     height: 60px;
+    width: auto;
+    border-radius: 6px;
+
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
 }
 
 header nav a {
-    color: white;
-    margin: 0 10px;
+    color: #ffffff;
     text-decoration: none;
+    font-weight: 600;
+    padding: .4rem .6rem;
+    border-radius: 8px;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+header nav a:hover,
+header nav a:focus {
+    background: rgba(255, 255, 255, .18);
+    outline: none;
 }
 
 .hero {
     position: relative;
+    max-width: var(--maxw);
+    margin: 0 auto 1rem;
+    overflow: clip;
+    border-bottom: 1px solid var(--border);
 }
 
 .hero img {
@@ -50,53 +113,215 @@ header nav a {
     position: absolute;
     top: 20px;
     left: 20px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 14px;
+    border-radius: 8px;
+    max-width: min(90%, 700px);
 }
 
 .hero article {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    color: white;
-    max-width: 400px;
+    color: #ffffff;
+    max-width: 420px;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    padding: 12px 14px;
+    border-radius: 10px;
 }
 
 .hero article img {
     float: right;
     margin-left: 10px;
     width: 150px;
+    border-radius: 8px;
+}
+
+main {
+    max-width: var(--maxw);
+    margin: 0 auto;
 }
 
 main section {
-    padding: 20px;
+    padding: 20px 16px;
 }
 
 main section h2 {
     color: var(--accent-color);
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
+    font-size: 1.75rem;
+}
+
+<section class="history" > <h2 > History</h2 > <div class="history-grid" > <p > ...</p > <figure class="history-image" > <img ... > <figcaption > ...</figcaption > </figure > <p > ...</p > </div > </section > */ .history .history-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.history .history-grid p {
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.history .history-grid .history-image {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #fff;
+}
+
+.history .history-grid .history-image figcaption {
+    padding: .6rem .9rem;
+    font-size: .95rem;
+    color: var(--muted-color);
+    border-top: 1px solid var(--border);
+}
+
+@media (min-width: 900px) {
+    .history .history-grid {
+        grid-template-columns: 1fr 1.2fr 1fr;
+        align-items: start;
+    }
+}
+
+/* Expecting:
+   <section class="adventures">
+     <h2>Adventure Awaits You!</h2>
+     <div class="adventure-gallery">
+       <figure> <img ...> <figcaption>...</figcaption> </figure> x5
+     </div>
+   </section>
+*/
+
+.adventures .adventure-gallery {
+    display: grid;
+    gap: .8rem;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.adventures .adventure-gallery figure {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.adventures .adventure-gallery img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+
+    object-fit: cover;
+}
+
+.adventures .adventure-gallery figcaption {
+    padding: .6rem .9rem;
+    font-weight: 600;
+    color: var(--text-color);
+    border-top: 1px solid var(--border);
+}
+
+@media (min-width: 640px) {
+    .adventures .adventure-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .adventures .adventure-gallery {
+        grid-template-columns: repeat(5, 1fr);
+
+    }
 }
 
 footer {
     background: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 15px;
+    color: #ffffff;
+    padding: 15px 16px;
+}
+
+footer .footer-inner {
+
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    max-width: var(--maxw);
+    margin: 0 auto;
 }
 
 footer p {
-    margin-bottom: 10px;
+    margin: 0;
+
+}
+
+.socialmedia {
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .socialmedia a {
     text-decoration: none;
-    margin: 0 5px;
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .35);
+    background: rgba(255, 255, 255, .08);
+}
+
+.socialmedia a:hover,
+.socialmedia a:focus {
+    background: rgba(255, 255, 255, .2);
+    outline: none;
 }
 
 .socialmedia img {
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+@media (max-width: 720px) {
+    header {
+        grid-template-columns: auto 1fr;
+        row-gap: .5rem;
+    }
+
+    header nav {
+        justify-content: flex-end;
+    }
+
+    .hero h1 {
+        font-size: 1.25rem;
+        left: 12px;
+        top: 12px;
+    }
+
+    .hero article {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+
+    }
 }
