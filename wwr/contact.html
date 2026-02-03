@@ -9,12 +9,12 @@
     <meta name="description"
       content="Contact White Water Rafting for reservations, questions, or general information. Find our address, phone, email, map, and send us a message." />
 
-    <!-- Link to your existing rafting.css -->
+
     <link rel="stylesheet" href="styles/rafting.css" />
 </head>
 
 <body>
-    <!-- Site Header / Navigation -->
+
     <header>
         <a href="index.html" aria-label="Go to home">
             <img src="images/logo.jpg" alt="White Water Rafting logo" />
@@ -28,7 +28,7 @@
     </header>
 
     <main class="contact-page">
-        <!-- Company Info (centered, like the wireframe) -->
+
         <section class="company-header">
             <h1>White Water Rafting Company</h1>
             <p>123 Main River Street<br>Kolob, California</p>
@@ -36,11 +36,11 @@
             <p><a href="mailto:info@whitewater.com">info@whitewater.com</a></p>
         </section>
 
-        <!-- Two-column area: Map (left) + Form (right) on wide screens -->
+
         <section class="contact-content" aria-labelledby="contact-section-heading">
             <h2 id="contact-section-heading" class="sr-only">Map and Contact Form</h2>
 
-            <!-- Embedded Google Map (no inline style attribute) -->
+
             <div class="map" aria-label="Location map">
                 <iframe title="White Water Rafting location" loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
@@ -48,26 +48,26 @@
                 </iframe>
             </div>
 
-            <!-- Contact Form -->
+
             <section class="contact-form" aria-labelledby="form-heading">
                 <h3 id="form-heading" class="sr-only">Send us a message</h3>
 
                 <form action="#" method="post" novalidate>
-                    <!-- Name -->
+
                     <div>
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Jane Doe"
                           autocomplete="name" required>
                     </div>
 
-                    <!-- Email -->
+
                     <div>
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" placeholder="jane@example.com"
                           autocomplete="email" required>
                     </div>
 
-                    <!-- Purpose (radio group) -->
+
                     <fieldset>
                         <legend>Message Purpose</legend>
                         <div class="options">
@@ -80,25 +80,25 @@
                         </div>
                     </fieldset>
 
-                    <!-- Message -->
+
                     <div>
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Type here"></textarea>
                     </div>
 
-                    <!-- Newsletter -->
+
                     <label class="form-inline">
                         <input type="checkbox" name="subscribe" value="yes">
                         Please subscribe me to the monthly newsletter
                     </label>
 
-                    <!-- Submit -->
+
                     <button type="submit" class="button">Get in Touch!</button>
                 </form>
             </section>
         </section>
 
-        <!-- Employees -->
+
         <section class="employees" aria-labelledby="team-heading">
             <h2 id="team-heading">We Are Here to Serve You</h2>
 
@@ -121,7 +121,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+
     <footer>
         <div class="footer-inner">
             <p>© <span id="year"></span> White Water Rafting</p>
@@ -140,7 +140,7 @@
         </div>
 
         <script>
-            // Auto-update the year in the footer
+
             document.getElementById('year').textContent = new Date().getFullYear();
         </script>
     </footer>
