@@ -2,93 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>White Water Rafting | Contact Us</title>
     <meta name="description"
-      content="Contact White Water Rafting for reservations, questions, or general information.">
-    <link rel="stylesheet" href="styles/rafting.css">
+      content="Contact White Water Rafting for reservations, questions, or general information. Find our address, phone, email, map, and send us a message." />
+    <!-- Use your existing stylesheet -->
+    <link rel="stylesheet" href="styles/rafting.css" />
 </head>
 
 <body>
     <header>
-        <img src="images/logo.png" alt="Rafting Site Logo">
+        <a href="index.html" aria-label="Go to home">
+            <img src="images/logo.png" alt="White Water Rafting logo" />
+        </a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+            <a href="trips.html">Trips</a>
+            <a href="contact.html" aria-current="page">Contact Us</a>
         </nav>
     </header>
 
-    <main>
-        <h1>Contact Us</h1>
-
-        <section class="contact-info">
-            <h2>Company Information</h2>
-            <p><strong>Address:</strong> 123 River Run Road, Boise, ID</p>
-            <p><strong>Phone:</strong> 555-555-5555</p>
-            <p><strong>Email:</strong> info@wwr.com</p>
-
-            <div class="map-container">
-                <!-- Remember: REMOVE style="border:0" -->
-                <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_CODE" allowfullscreen=""
-                  loading="lazy">
-                </iframe>
-            </div>
+    <main class="contact-page">
+        <!-- Company Info (centered) -->
+        <section class="company-header">
+            <h1>White Water Rafting Company</h1>
+            <p>123 Main River Street<br />Kolob, California</p>
+            <p>+1 999 999 9999</p>
+            <p><a href="mailto:info@whitewater.com">info@whitewater.com</a></p>
         </section>
 
-        <section class="employees">
-            <h2>Our Team</h2>
-            <figure>
-                <img src="images/employee1.jpg" alt="Guide Sarah">
-                <figcaption>Sarah – Senior Guide</figcaption>
-            </figure>
-            <figure>
-                <img src="images/employee2.jpg" alt="Guide Marcus">
-                <figcaption>Marcus – Safety Specialist</figcaption>
-            </figure>
-            <figure>
-                <img src="images/employee3.jpg" alt="Guide Lena">
-                <figcaption>Lena – Adventure Coordinator</figcaption>
-            </figure>
-        </section>
+        <!-- Two-column area: Map (left) + Form (right) on wide screens -->
+        <section class="contact-content" aria-labelledby="contact-section-heading">
+            <h2 id="contact-section-heading" class="sr-only">Map and Contact Form</h2>
 
-        <section class="contact-form">
-            <h2>Send Us a Message</h2>
-
-            <form>
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-
-                <fieldset>
-                    <legend>Purpose of Message</legend>
-                    <label><input type="radio" name="purpose" value="general" required> General
-                        Inquiry</label>
-                    <label><input type="radio" name="purpose" value="reservation"> Reservation
-                        Question</label>
-                    <label><input type="radio" name="purpose" value="website"> Website
-                        Suggestion</label>
-                </fieldset>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <label>
-                    <input type="checkbox" name="subscribe">
-                    Please subscribe me to the monthly newsletter
-                </label>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>©2026 White Water Rafting</p>
-    </footer>
-</body>
-
-</html>
+            <!-- Map -->
+            <div class="map" aria-label="Location map">
+                <!-- Replace the src below with your real Google Map embed URL.

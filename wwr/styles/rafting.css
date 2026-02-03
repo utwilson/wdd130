@@ -1,163 +1,425 @@
-/* =========================
-   Contact Page Layout
-   ========================= */
-.contact {
+/* =========================================================
+   Global Reset & Variables
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1e90ff;
+    --accent-color: #ff4500;
+
+    --text-color: #333333;
+    --muted-color: #556070;
+    --background-color: #ffffff;
+
+    --surface: #f5f7fa;
+    --border: #e5e7eb;
+    --maxw: 1200px;
+    --radius: 12px;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Screen reader only helper */
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================================================
+   Header & Navigation
+   ========================================================= */
+header {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px 16px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+
     max-width: var(--maxw);
     margin: 0 auto;
+}
+
+header img {
+    height: 60px;
+    width: auto;
+    border-radius: 6px;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header nav a:hover,
+header nav a:focus {
+    background: rgba(255, 255, 255, 0.18);
+    outline: none;
+}
+
+/* =========================================================
+   Hero (if used on some pages)
+   ========================================================= */
+.hero {
+    position: relative;
+    max-width: var(--maxw);
+    margin: 0 auto 1rem;
+    overflow: clip;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 14px;
+    border-radius: 8px;
+    max-width: min(90%, 700px);
+}
+
+.hero article {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #ffffff;
+    max-width: 420px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 12px 14px;
+    border-radius: 10px;
+}
+
+.hero article img {
+    float: right;
+    margin-left: 10px;
+    width: 150px;
+    border-radius: 8px;
+}
+
+/* =========================================================
+   Main Sections (generic)
+   ========================================================= */
+main {
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+main section {
     padding: 20px 16px;
 }
 
-.contact h1 {
-    margin: 0 0 1rem;
+main section h2 {
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    font-size: 1.75rem;
 }
 
-.contact-grid {
+/* =========================================================
+   History Section (example)
+   ========================================================= */
+/* Example expected HTML structure for reference:
+   <section class="history">
+     <h2>History</h2>
+     <div class="history-grid">
+       <p>...</p>
+       <figure class="history-image">
+         <img ... >
+         <figcaption>...</figcaption>
+       </figure>
+       <p>...</p>
+     </div>
+   </section>
+*/
+.history .history-grid {
     display: grid;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
-/* 2-column layout on medium+ screens: info/map | form */
+.history .history-grid p {
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.history .history-grid .history-image {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #fff;
+}
+
+.history .history-grid .history-image figcaption {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    color: var(--muted-color);
+    border-top: 1px solid var(--border);
+}
+
 @media (min-width: 900px) {
-    .contact-grid {
-        grid-template-columns: 1.1fr 1fr;
+    .history .history-grid {
+        grid-template-columns: 1fr 1.2fr 1fr;
         align-items: start;
     }
 }
 
-/* Reusable surface card (reuses your variables) */
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 1rem;
-}
-
-/* Section headings on contact page */
-.contact section > h2 {
-    margin: 0 0 .75rem 0;
-    color: var(--accent-color);
-    font-size: 1.5rem;
-}
-
-/* =========================
-   Company Info + Map
-   ========================= */
-.company-info {
+/* =========================================================
+   Adventures Gallery (example)
+   ========================================================= */
+/* Expected HTML:
+   <section class="adventures">
+     <h2>Adventure Awaits You!</h2>
+     <div class="adventure-gallery">
+       <figure> <img ...> <figcaption>...</figcaption> </figure> x5
+     </div>
+   </section>
+*/
+.adventures .adventure-gallery {
     display: grid;
-    gap: .75rem;
-}
-
-.company-info p {
-    margin: 0;
-}
-
-.company-info .meta {
-    color: var(--muted-color);
-}
-
-/* Map container keeps aspect ratio and responsiveness */
-.map-container {
-    margin-top: .5rem;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: #fff;
-}
-
-/* Remove inline border attribute in HTML and style here */
-.map-container iframe {
-    display: block;
-    width: 100%;
-    height: 320px;
-    /* Comfortable default height */
-}
-
-/* =========================
-   Employee Profiles
-   ========================= */
-.employees {
-    display: grid;
-    gap: 1rem;
-}
-
-.employee-grid {
-    display: grid;
-    gap: 1rem;
+    gap: 0.8rem;
     grid-template-columns: repeat(2, 1fr);
 }
 
-@media (min-width: 640px) {
-    .employee-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.employee {
-    background: #fff;
-    border: 1px solid var(--border);
+.adventures .adventure-gallery figure {
+    margin: 0;
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
     overflow: hidden;
-    text-align: center;
+    background: #fff;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
 }
 
-.employee img {
+.adventures .adventure-gallery img {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
 }
 
-.employee figcaption {
-    padding: .6rem .9rem;
+.adventures .adventure-gallery figcaption {
+    padding: 0.6rem 0.9rem;
     font-weight: 600;
     color: var(--text-color);
     border-top: 1px solid var(--border);
 }
 
-/* Optional smaller job title text line */
-.employee .title {
-    display: block;
-    font-weight: 500;
-    color: var(--muted-color);
-    margin-top: .25rem;
-    font-size: .95rem;
+@media (min-width: 640px) {
+    .adventures .adventure-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-/* =========================
-   Form Styling
-   ========================= */
-.contact-form form {
+@media (min-width: 900px) {
+    .adventures .adventure-gallery {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+footer {
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 15px 16px;
+}
+
+footer .footer-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
     display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 1rem;
 }
 
-/* Labels */
-.contact-form label {
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: .35rem;
+footer p {
+    margin: 0;
 }
 
-/* Text inputs, emails, textarea share same style */
+.socialmedia {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.socialmedia a {
+    text-decoration: none;
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.socialmedia a:hover,
+.socialmedia a:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.socialmedia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================================
+   Responsive tweaks for header/hero
+   ========================================================= */
+@media (max-width: 720px) {
+    header {
+        grid-template-columns: auto 1fr;
+        row-gap: 0.5rem;
+    }
+
+    header nav {
+        justify-content: flex-end;
+    }
+
+    .hero h1 {
+        font-size: 1.25rem;
+        left: 12px;
+        top: 12px;
+    }
+
+    .hero article {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+    }
+}
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+/* Page wrapper */
+.contact-page {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+    /* wireframe shows centered company block */
+}
+
+/* Company info block */
+.company-header p {
+    margin: 0.25rem 0;
+    color: var(--muted-color);
+    font-size: 1rem;
+}
+
+/* Two-column layout: Map (left) + Form (right) on wide screens */
+.contact-content {
+    margin-top: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+/* Map container/iframe (remove inline style from HTML per requirements) */
+.map iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+}
+
+/* Contact form layout */
+.contact-form {
+    display: grid;
+    gap: 1rem;
+    text-align: left;
+    /* align labels and controls left */
+}
+
+/* Form controls (reusable styles) */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea,
 select {
     width: 100%;
-    padding: .65rem .75rem;
-    /* creates inner space for readability */
+    padding: 0.65rem 0.75rem;
+    /* comfortable inner spacing */
     border: 1px solid var(--border);
     border-radius: 8px;
     background: #fff;
     color: var(--text-color);
     line-height: 1.35;
-    transition: border-color .15s ease, box-shadow .15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Focus state for accessibility */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: #9aa3af;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -165,43 +427,50 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: var(--primary-color);
+    /* Visible focus ring for a11y without inline styles */
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 25%, transparent);
 }
 
-/* Textarea height and resize control */
+/* Textarea sizing */
 textarea {
     min-height: 140px;
     resize: vertical;
 }
 
-/* Fieldset + legend for radio group */
+/* Labels */
+.contact-form label {
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.35rem;
+}
+
+/* Radio group */
 fieldset {
     margin: 0;
-    padding: .75rem;
+    padding: 0.9rem;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: var(--radius);
     background: #fff;
 }
 
 legend {
-    padding: 0 .35rem;
+    padding: 0 0.35rem;
     font-weight: 700;
     color: var(--text-color);
 }
 
-/* Radio/checkbox rows—bigger tap targets via label padding */
+/* Increase tappable area for radios/checkboxes via label padding */
 .options {
     display: grid;
-    gap: .5rem;
-    margin-top: .25rem;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
 }
 
 .options label {
     display: inline-flex;
     align-items: center;
-    gap: .5rem;
-    padding: .5rem .6rem;
-    /* bigger click area */
+    gap: 0.5rem;
+    padding: 0.5rem 0.6rem;
     border-radius: 8px;
 }
 
@@ -209,33 +478,32 @@ legend {
     background: var(--surface);
 }
 
-/* Keep native radio/checkbox but improve spacing */
 input[type="radio"],
 input[type="checkbox"] {
     inline-size: 1rem;
     block-size: 1rem;
 }
 
-/* Newsletter checkbox row */
+/* Newsletter row */
 .form-inline {
     display: inline-flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
-/* Submit button (primary action) */
+/* Primary submit button (reusable) */
 .button,
 button[type="submit"],
 input[type="submit"] {
     appearance: none;
     border: none;
     border-radius: 10px;
-    padding: .7rem 1rem;
+    padding: 0.7rem 1rem;
     font-weight: 700;
     color: #fff;
     background: var(--primary-color);
     cursor: pointer;
-    transition: transform .05s ease, filter .2s ease, background-color .2s ease;
+    transition: transform 0.05s ease, filter 0.2s ease, background-color 0.2s ease;
 }
 
 .button:hover,
@@ -250,31 +518,65 @@ input[type="submit"]:active {
     transform: translateY(1px);
 }
 
-.button.secondary {
-    background: var(--muted-color);
-    color: #fff;
+/* Make contact submit button full-width like the wireframe */
+.contact-form button[type="submit"] {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
 }
 
-/* Helper to constrain form width on wide screens */
-.measure {
-    max-width: 720px;
+/* =========================================================
+   Employees Section (Contact Page)
+   ========================================================= */
+.employees {
+    margin-top: 3rem;
+    background: var(--surface);
+    padding: 2rem 1rem;
+    border-radius: var(--radius);
 }
 
-/* =========================
-   Utilities (reusable)
-   ========================= */
-.stack > * + * {
-    margin-top: .75rem;
+.employees h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1.8rem;
 }
 
-.grid-gap-s {
-    gap: .5rem;
-}
-
-.grid-gap-m {
-    gap: 1rem;
-}
-
-.grid-gap-l {
+.employee-grid {
+    display: grid;
     gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+}
+
+.employee {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+}
+
+.employee img {
+    width: 100%;
+    border-radius: var(--radius);
+    /* Optional: keep square portraits */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.employee figcaption {
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
+
+.employee .title {
+    display: block;
+    color: var(--muted-color);
+    font-weight: 500;
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
 }
