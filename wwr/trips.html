@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trips | Dry Oar Whitewater Rafting</title>
+    <meta name="description"
+      content="Explore our white water rafting trips: detailed itineraries, photos, difficulty ratings, pricing, and schedules. Book your adventure—contact us today!" />
+    <link rel="stylesheet" href="styles/style.css" />
+
+
+    <style>
+        body.trips-page {
+            --accent: #2d6a4f;
+            --dark: #1b4332;
+            --light: #f6f7f8;
+            background: #fafbfc;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: .75rem 1rem;
+            background: #2f3e46;
+        }
+
+        header .logo {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: .5rem .75rem;
+            border-radius: .4rem;
+        }
+
+        header nav a:hover {
+            background: rgba(255, 255, 255, .12);
+        }
+
+        .trips-hero {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 46vh;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .trips-hero img {
+            width: 100%;
+            height: 46vh;
+            object-fit: cover;
+            filter: brightness(0.65);
+            display: block;
+        }
+
+        .trips-hero .hero-content {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 1.5rem;
+        }
+
+        .trips-hero h1 {
+            font-size: clamp(2rem, 4vw + 1rem, 3rem);
+            margin: 0.25rem 0;
+            letter-spacing: .5px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
+        }
+
+        .trips-hero p {
+            max-width: 70ch;
+            margin: .25rem auto 1rem;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, .55);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: .85rem 1.2rem;
+            border-radius: .5rem;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+        }
+
+        .btn:hover {
+            background: #1f7a4c;
+        }
+
+        .btn.outline {
+            background: transparent;
+            border: 2px solid #fff;
+        }
+
+        .trips-wrap {
+            padding: clamp(1rem, 1.5vw + .5rem, 2.5rem);
+            display: grid;
+            gap: 2rem;
+        }
+
+        .trip-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.25rem;
+            align-items: stretch;
+        }
+
+        .trip-card {
+            grid-column: span 4;
+            background: #fff;
+            border-radius: .75rem;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            border: 1px solid #eceff1;
+        }
+
+        .trip-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .trip-card .content {
+            padding: 1rem 1rem 0.5rem;
+            display: grid;
+            gap: .4rem;
+        }
+
+        .trip-card h3 {
+            margin: 0;
+            color: var(--dark);
+        }
+
+        .meta {
+            display: flex;
+            gap: .75rem;
+            font-size: .9rem;
+            color: #5a6a6a;
+            flex-wrap: wrap;
+        }
+
+        .trip-card ul {
+            margin: .5rem 0 0 1.2rem;
+        }
+
+        .trip-card .actions {
+            padding: .75rem 1rem 1rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .trips-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: .75rem;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
+        }
+
+        .trips-table caption {
+            text-align: left;
+            font-weight: 700;
+            padding: .85rem 1rem;
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .trips-table th,
+        .trips-table td {
+            padding: .85rem 1rem;
+            border-bottom: 1px solid #eef2f4;
+            text-align: left;
+        }
+
+        .trips-table thead th {
+            background: #f3f6f7;
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: .125rem .5rem;
+            border-radius: 999px;
+            font-size: .85rem;
+            background: #e6f4ea;
+            color: #1e6a45;
+            border: 1px solid #c8ecd4;
+        }
+
+        aside.callout {
+            background: #fff;
+            border: 1px solid #eceff1;
+            border-radius: .75rem;
+            padding: 1rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, .06);
+        }
+
+        aside.callout h4 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background: #354f52;
+            color: #fff;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer .social {
+            display: flex;
+            gap: .75rem;
+        }
+
+        footer .social img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            filter: brightness(1) invert(0);
+        }
+
+        @media (max-width: 980px) {
+            .trip-card {
+                grid-column: span 6;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .trip-card {
+                grid-column: span 12;
+            }
+
+            .trips-hero img {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+
+<body class="trips-page">
+
+    <header>
+        <a id="logo_link" href="index.html" aria-label="Home">
+            <img class="logo" src="images/logo.jpg" alt="Dry Oar Rafting logo" />
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="trips.html" aria-current="page">Trips</a>
+            <a href="site-plan-rafting.html">Site Plan</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="trips-hero" aria-labelledby="trips-hero-title">
+            <img src="images/heroimage.jpg"
+              alt="Raft slicing through whitewater rapids with a guide and paddlers" />
+            <div class="hero-content">
+                <div>
+                    <h1 id="trips-hero-title">Choose Your Adventure</h1>
+                    <p>Guided white water trips for every skill level—from scenic floats to
+                        big-water thrill rides. Have questions? Reach out and we’ll help you pick
+                        the perfect trip.</p>
+                    <a class="btn outline" href="contact.html">Contact Us to Book</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="trips-wrap" aria-labelledby="featured-trips">
+            <h2 id="featured-trips">Featured Trips</h2>
+
+
+            <div class="trip-grid">
+                <!-- Trip 1 -->
+                <article class="trip-card" aria-labelledby="trip1-title">
+                    <img src="images/canyon.jpg"
+                      alt="Calm canyon river section with sunlit walls" />
+                    <div class="content">
+                        <h3 id="trip1-title">Canyon Scenic Float</h3>
+                        <div class="meta">
+                            <span class="badge">Beginner</span>
+                            <span>Half-day • Class II–III</span>
+                            <span>May–September</span>
+                        </div>
+                        <p>Perfect for families and first-timers. Enjoy gentle splashes, wildlife
+                            viewing, and towering sandstone walls while our guides handle the
+                            rowing.</p>
+                        <ul>
+                            <li>Duration: ~4 hours (10:00–14:00)</li>
+                            <li>Includes snacks, PFD, and river shoes</li>
+                            <li>Great for ages 6+ (50 lbs minimum)</li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+
+                        <article class="trip-card" aria-labelledby="trip2-title">
+                            <img src="images/pine.jpg"
+                              alt="Raft powering through foamy class III and IV rapids" />
+                            <div class="content">
+                                <h3 id="trip2-title">Pine Gorge Express</h3>
+                                <div class="meta">
+                                    <span class="badge">Intermediate</span>
+                                    <span>Full-day • Class III–IV</span>
+                                    <span>Season: April–October</span>
+                                </div>
+                                <p>A favorite among returning guests, this trip features fun wave
+                                    trains, surf spots, and a
+                                    full lunch along the river.</p>
+                                <ul>
+                                    <li>Duration: 7–8 hours</li>
+                                    <li>Lunch + drinks included</li>
+                                    <li>Recommended ages 12+ with moderate paddling ability</li>
+                                </ul>
+                            </div>
+                            <div class="actions">
+                                <a class="btn"
+                                  href="contact.html?trip=Pine%20Gorge%20Express">Reserve via
+                                    Contact</a>
+                            </div>
+                        </article>
+
+
+                        <article class="trip-card" aria-labelledby="trip3-title">
+                            <img src="images/glacier.jpg"
+                              alt="Large high‑volume rapid with powerful currents and spray" />
+                            <div class="content">
+                                <h3 id="trip3-title">Glacier Run Big Water</h3>
+                                <div class="meta">
+                                    <span class="badge">Advanced</span>
+                                    <span>Full-day • Class IV–V</span>
+                                    <span>Season: May–June</span>
+                                </div>
+                                <p>Designed for thrill‑seekers, this stretch features technical
+                                    maneuvers, big waves, and
+                                    continuous high‑energy whitewater.</p>
+                                <ul>
+                                    <li>Duration: 6–7 hours</li>
+                                    <li>All safety gear included</li>
+                                    <li>Minimum age 16; must be a strong swimmer</li>
+                                </ul>
+                            </div>
+                            <div class="actions">
+                                <a class="btn"
+                                  href="contact.html?trip=Glacier%20Run%20Big%20Water">Talk to a
+                                    Guide</a>
+                            </div>
+                        </article>
+
+                    </div>
+        </section>
