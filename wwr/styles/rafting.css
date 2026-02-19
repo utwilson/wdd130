@@ -1,9 +1,6 @@
-/* =========================================================
-   Reset & Variables
-   ========================================================= */
-*,
-*::before,
-*::after {
+,
+::before,
+::after {
     box-sizing: border-box;
 }
 
@@ -36,7 +33,6 @@ body {
     line-height: 1.6;
 }
 
-/* Global image control */
 img {
     max-width: 100%;
     height: auto;
@@ -48,9 +44,6 @@ a {
     text-decoration: none;
 }
 
-/* =========================================================
-   Header
-   ========================================================= */
 .site-header {
     background: transparent;
     color: #fff;
@@ -67,10 +60,9 @@ a {
     margin: 0 auto;
 }
 
-/* Smaller logo */
 .site-header .brand img {
     height: 40px;
-    /* reduced from 48px */
+
     width: auto;
     border-radius: 6px;
 }
@@ -90,9 +82,6 @@ a {
     transition: background-color .2s ease;
 }
 
-/* =========================================================
-   Hero
-   ========================================================= */
 .hero {
     position: relative;
     max-width: var(--maxw);
@@ -100,20 +89,16 @@ a {
     overflow: hidden;
 }
 
-/* Reduced hero height */
 .hero img {
     width: 100%;
     max-height: 480px;
-    /* prevents overly tall hero */
+
     object-fit: cover;
     border: 0;
     padding: 0;
     box-shadow: none;
 }
 
-/* =========================================================
-   Features
-   ========================================================= */
 .features {
     max-width: var(--maxw);
     margin: 0 auto 2.5rem;
@@ -127,14 +112,13 @@ a {
     justify-items: center;
 }
 
-/* Smaller tiles */
 .tile {
     background: #fff;
     border: 3px solid #d9c9b0;
     border-radius: 6px;
     box-shadow: 0 10px 18px rgba(0, 0, 0, .07);
     max-width: 240px;
-    /* reduced from 280px */
+
     width: 100%;
 }
 
@@ -147,17 +131,13 @@ a {
     box-shadow: none;
 }
 
-/* Smaller tile icons */
 .tile__icon {
     width: 24px;
-    /* reduced from 28px */
+
     height: 24px;
     opacity: .8;
 }
 
-/* =========================================================
-   Promo
-   ========================================================= */
 .promo {
     background: #ccb99f;
     padding: 2.25rem 1rem;
@@ -169,11 +149,10 @@ a {
     position: relative;
 }
 
-/* Smaller promo image */
 .promo__figure {
     margin: 0;
     max-width: 750px;
-    /* reduced from 880px */
+
 }
 
 .promo__figure img {
@@ -185,9 +164,6 @@ a {
     padding: 0;
 }
 
-/* =========================================================
-   Footer
-   ========================================================= */
 .site-footer {
     background: #3f4f56;
     color: #fff;
@@ -203,21 +179,16 @@ a {
     align-items: center;
 }
 
-/* Smaller social icons */
 .footer__social img {
     width: 22px;
-    /* reduced from 28px */
+
     height: 22px;
     display: block;
 }
 
-/* =========================================================
-   Rubric Overrides (Fixed Image Sizing)
-   ========================================================= */
-
-main img {
+/ main img {
     max-width: 100%;
-    /* changed from width:100% */
+
     height: auto;
     border: 1px solid #e0e0e0;
     padding: 4px;
@@ -233,10 +204,9 @@ aside {
     color: #102a43;
 }
 
-/* Smaller aside image */
 aside img {
     width: 160px;
-    /* reduced from 200px */
+
     max-width: 100%;
     height: auto;
 }
